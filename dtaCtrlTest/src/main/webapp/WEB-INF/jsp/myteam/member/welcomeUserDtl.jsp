@@ -106,7 +106,7 @@
 	fn_isRightPwd = function(code) {
 		var userId = $("#welcomeUserId").val();
 		var passWd = $("#passWd").val();
-		alert("입력한 아이디: "+userId +", 입력한 비번: "+passWd);
+		// alert("입력한 아이디: "+userId +", 입력한 비번: "+passWd);
 		var data = {
 				'userId': userId,
 				'passWd': passWd,
@@ -120,7 +120,7 @@
 			success(result) {
 				console.log('비번확인 결과: '+result);
 				if(result.what === "success") {
-					alert("비번 일치");
+					// alert("비번 일치");
 					if(result.code === "1") {
 						fn_afterModUser();
 					}else if(result.code === "2") {
@@ -129,7 +129,7 @@
 						fn_finalDelUser();
 					}
 				}else {
-					alert("비번 불일치");
+					alert("비밀번호가 일치하지 않습니다. 비밀번호를 확인해주세요.");
 					return false;
 				}
 			},
