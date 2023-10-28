@@ -223,6 +223,41 @@ public class DtaController {
 		return page;
 	}
 	
+	@RequestMapping("/isRightPwd.do")
+	@ResponseBody
+	public String isRightPwd(@RequestParam Map<String, Object> param, Model model) {
+		String code = (String) param.get("code");	// 접근한 uri에 따라 리턴하는 code를 변경
+		
+		System.out.println("전달받은 파라미터: "+param);
+		Map<String, Object> member = dtaService.selectOneMember(param);
+		System.out.println("return 확인: "+member);
+		if(member.equals("") || member.isEmpty() || member == null) {
+			System.out.println("비번 불일치");
+			model.addAttribute("what", "fail");
+		}else {
+			System.out.println("비번 일치");
+			model.addAttribute("what", "success");
+			model.addAttribute("code", code);
+		}
+		JSONObject jObj = new JSONObject((Map) model);
+		System.out.println("return model:" + model);
+		
+		return jObj.toString();
+	}
 	// 회원 탈퇴 - 직접 해보기
-	
+	@RequestMapping("/deleteUserInfo.do")
+	@ResponseBody
+	public String deleteUser(@RequestParam Map<String, Object> param, Model model) {
+		System.out.println("전달받은 파라미터: "+param);
+		int delUser = dtaService.deleteUserInfo(param);
+		if(delUser > 0) {
+			System.out.println("삭제 완료");
+			model.addAttribute("what", "success");
+		}else {
+			System.out.println("삭제 실패");
+			model.addAttribute("what", "fail");
+		}
+		JSONObject jObj = new JSONObject((Map) model);
+		return jObj.toString();
+	}
 }

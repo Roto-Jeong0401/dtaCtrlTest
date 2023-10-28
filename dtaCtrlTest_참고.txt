@@ -1,0 +1,43 @@
+# 127.0.0.1:3306/testdb - localhost...
+# user - test
+# password - 8520
+
+# 초기 DB, 유저 생성 및 권한 주기
+mysql -u root -p
+root/8520
+
+show databases;
+
+create database testdb;
+
+use testdb;
+
+create user 'test'@'%' identified by '8520';
+
+grant all privileges on testdb.* to 'test'@'%' identified by '8520';
+
+flush previliges;
+
+## 테이블 생성
+create table member (
+	  SEQ INT AUTO_INCREMENT
+	, USERID VARCHAR(20)
+	, USERNM VARCHAR(30)
+	, PASSWD VARCHAR(30)
+	, ADDRESS VARCHAR(50)
+	, COMMENT VARCHAR(100)
+	, primary KEY(SEQ, USERID)
+);
+
+select * from member;
+
+## 샘플 데이터 입력
+insert into member (USERID, USERNM, PASSWD, ADDRESS, COMMENT)
+values
+('jms@sootechsys.co.kr', 'minsu', '1111', '경기도', '안녕?'),
+('jgs@sootechsys.co.kr', 'gwangsu', '2222', '서울', 'ㅎㅇㅇ'),
+('jjs@sootechsys.co.kr', 'jinsu', '3333', '가평', 'ㅋㅋㅋ'),
+('jeh@sootechsys.co.kr', 'ehyun', '4444', '서울', 'ㅎㅎㅎ'),
+('kej@sootechsys.co.kr', 'eunjin', '5555', '부평', 'ㅇㅇㅇ'),
+('eha@sootechsys.co.kr', 'hyuna', '6666', '인천', '???'),
+('khn@sootechsys.co.kr', 'hana', '7777', '남양주', '??!!');

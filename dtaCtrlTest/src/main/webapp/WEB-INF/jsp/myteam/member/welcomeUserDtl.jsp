@@ -14,6 +14,8 @@
 		<div class="content">
 			<br>
 			<h1>Welcome UserDetail...</h1>
+			<input type="hidden" id="welcomeUserId" value="${member.USERID}">
+			<h5 id="welcomeUserName" style="float: right;">${member.USERNM} 님 접속중</h5>
 			<table class="table table-bordered">
 				<form method="post" action="/updateUserInfo.do">
 					<tr>
@@ -75,10 +77,14 @@
 				// 비번 불일치
 				$("#showWarnMsg").css("visibility", "visible");
 				$("#passWarn").css("display", "block");
+				$("#btn_modUser").attr("disabled", true);
+				$("#btn_delUser").attr("disabled", true);
 			}else {
 				// 비번 일치
 				$("#showWarnMsg").css("visibility", "hidden");
 				$("#passWarn").css("display", "none");
+				$("#btn_modUser").attr("disabled", false);
+				$("#btn_delUser").attr("disabled", false);
 			}
 		}else {
 			// 비밀번호, 비밀번호 확인 둘 중 하나 미입력
@@ -91,12 +97,57 @@
 	* 수정버튼 클릭 시 이벤트
 	*/
 	fn_modUser = function() {
+		// 기존정보 비번 확인
+		var code = "1";
+		fn_isRightPwd(code);
+	}
+	
+	// 수정하기 버튼 클릭 시 - 회원정보에 등록된 비번과 일치하는지 확인
+	fn_isRightPwd = function(code) {
+		var userId = $("#welcomeUserId").val();
+		var passWd = $("#passWd").val();
+		alert("입력한 아이디: "+userId +", 입력한 비번: "+passWd);
+		var data = {
+				'userId': userId,
+				'passWd': passWd,
+				'code': code
+		}
+		$.ajax({
+			type: 'POST',
+			url: '/isRightPwd.do',
+			data: data,
+			dataType: 'json',
+			success(result) {
+				console.log('비번확인 결과: '+result);
+				if(result.what === "success") {
+					alert("비번 일치");
+					if(result.code === "1") {
+						fn_afterModUser();
+					}else if(result.code === "2") {
+						fn_finalModUser();
+					}else if(result.code === "3") {
+						fn_finalDelUser();
+					}
+				}else {
+					alert("비번 불일치");
+					return false;
+				}
+			},
+			error() {
+				alert("error");
+			}
+		});	
+	}
+	
+	// 비번 통과 시 기존 버튼명, 속성 변경, 메서드 변경
+	fn_afterModUser = function() {
 		$(".dsbledCls").attr("disabled", false);
 		// 수정하기 버튼 클릭 시 - 저장 버튼으로 이름 변경
 		$("#btn_modUser").text("저장");
 		$("#btn_modUser").removeAttr("onclick");	// onclick 속성 삭제
 		$("#btn_modUser").attr("onclick", "fn_doModUser();")	// onclick 속성 다시 부여
-		$("#btn_modUser").attr("disabled", true);	// disalbe 속성 다시 부여 - 새 비밀번호 입력 시 활성화
+		$("#btn_modUser").attr("disabled", true);	// disalbe 속성 다시 부여 - 기존 비밀번호화 새 비밀번호 입력 시 활성화
+		$("#btn_delUser").attr("disabled", true);	// disalbe 속성 다시 부여 - 기존 비밀번호화 새 비밀번호 입력 시 활성화
 		
 		// 아이디, 이름은 수정 불가
 		$("#userId").attr("readonly", true);
@@ -115,6 +166,7 @@
 		$("#passWdChk").attr("onkeyup", "fn_newPassClick();");
 	}
 	
+	// 비밀번호 변경 - 비번 변경 하려면 기존비번과 새비번 둘다 입력되야 함.
 	fn_newPassClick = function() {
 		var passWd = $("#passWd").val();
 		var passWdChk = $("#passWdChk").val();
@@ -122,9 +174,11 @@
 		if(!(passWd == "" || passWd == null || passWd =="undefined") && !(passWdChk == "" || passWdChk == null || passWdChk == "undefined")){
 			// 기존비번, 새 비번 모두 입력
 			$("#btn_modUser").attr("disabled", false);
+			$("#btn_delUser").attr("disabled", false);
 		}else {
 			// 둘 중 하나 미입력
 			$("#btn_modUser").attr("disabled", true);
+			$("#btn_delUser").attr("disabled", true);
 		}
 	}
 	
@@ -133,15 +187,50 @@
 	}
 	
 	fn_doModUser = function() {
-		$("form").submit();
+		// 기존정보 비번 확인
+		var code = "2";
+		fn_isRightPwd(code);
 	}
+	
+	fn_finalModUser = function() {
+		// alert("수정완료");
+		$("form").submit();
+	};
 	/*
 	* 삭제버튼 클릭 시 이벤트
 	*/
 	fn_delUser = function() {
-		// 삭제 성공 시
+		// 기존정보 비번 확인
+		var code = "3";
+		fn_isRightPwd(code);
+	}
+	
+	fn_finalDelUser = function () {
+		// alert("del 넘어옴.");	
+		var userId = $("#welcomeUserId").val();
+		var passWd = $("#passWd").val();
+		var data = {
+				'userId': userId,
+				'passWd': passWd
+		}
 		
-		// 삭제 실패 시
+		$.ajax({
+			type: 'POST',
+			url: '/deleteUserInfo.do',
+			data: data,
+			dataType: 'json',
+			success(result) {
+				if(result.what === "success") {
+					alert("삭제처리가 완료되었습니다.");
+					window.location = "/index.do";
+				}else {
+					alert("삭제처리에 실패하였습니다.");
+				}
+			},
+			error() {
+				alert("delete error");
+			}
+		});
 	}
 </script>
 </html>

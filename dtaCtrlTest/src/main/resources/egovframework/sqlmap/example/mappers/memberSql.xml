@@ -63,4 +63,8 @@
 		WHERE USERID = #{userId}
 			AND PASSWD = #{passWd}
 	</update>
+	
+	<delete id="memberSqlDeleteMember" parameterType="java.util.HashMap">
+		DELETE FROM MEMBER WHERE USERID = #{userId} AND PASSWD = #{passWd}
+	</delete>
 </mapper>

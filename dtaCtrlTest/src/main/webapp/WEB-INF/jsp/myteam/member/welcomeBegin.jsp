@@ -56,7 +56,7 @@
 			url: '/getAllMembers.do',
 			data: data,
 			dataType: 'json',	// 응답 데이터
-			success: function(response) { debugger;
+			success: function(response) { 
 				if(response.what === "success") {
 					console.log(response.list);
 					console.log("response.list.length: "+response.list.length);
@@ -108,7 +108,7 @@
 				}
 				
 			},
-			error: function(response) { debugger;
+			error: function(response) { 
 				console.log("error");
 			}
 		});
