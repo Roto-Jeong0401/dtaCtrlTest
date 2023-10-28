@@ -38,7 +38,7 @@ public class DtaController {
 	}
 	
 	/**
-	 * 수정 코드 - 검색기능 있음 (메인화면 초기 로드시 회원목록 조회/ default - 검색조건 없음)
+	 * 메인화면 초기 로드시 회원목록 조회/ default - 검색조건 없음, 아이디 입력 시 해당 아이디로 목록 조회
 	 * @param param
 	 * @param model
 	 * @return
@@ -48,7 +48,6 @@ public class DtaController {
 	public String getAllMembers(@RequestParam Map<String, Object> param, Model model) {
 		
 		ModelAndView mav = new ModelAndView("index");
-		// System.out.println("param: "+param);
 		System.out.println("param.get('userId'): "+param.get("userId"));
 		Map<String, Object> response = new HashMap<String, Object>();
 		List<Map<String, Object>> memberList = dtaService.getFindMembers(param);
@@ -76,42 +75,6 @@ public class DtaController {
 		
 		return jObj.toString();
 	}
-	
-	/**
-	 * 기존 코드 - 검색기능 없음
-	 * @return
-	 */
-//	@RequestMapping(value = "/getAllMembers.do", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String getAllMembers(Model model) {
-//		
-//		ModelAndView mav = new ModelAndView("index");
-//		Map<String, Object> response = new HashMap<String, Object>();
-//		
-//		List<Map<String, Object>> memberList = dtaService.getAllMembers();
-//		try {
-//			if(!memberList.isEmpty() || memberList != null || !memberList.equals("")) {
-//				System.out.println("조회 성공");
-//				System.out.println("memberList: "+ memberList);
-//				System.out.println("memberList.get(0): "+ memberList.get(0));
-//				//			response.put("what", "success");
-//				//			response.put("list", memberList.get(0));
-//				//			System.out.println("response: "+response);
-//				model.addAttribute("what", "success");
-//				model.addAttribute("list", memberList);
-//			}else {
-//				System.out.println("조회 실패");
-//				//			response.put("what", "fail");
-//				model.addAttribute("what", "fail");
-//			}
-//		}catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		JSONObject jObj = new JSONObject((Map) model);
-//		
-//		return jObj.toString();
-//	}
 	
 	/**
 	 * 회원가입페이지로 이동
@@ -202,8 +165,7 @@ public class DtaController {
 	}
 	
 	/**
-	 * 회원정보 수정	- 여기 ajax로 호출하는 것 연습 (@ResponseBody, JSONObject...) - 성공시 alert 띄우고 페이지 이동
-	 * 비밀번호 맞는지 먼저 조회하는거 필요(dtaService.selectOneMember..)
+	 * 회원정보 수정
 	 * @param param
 	 * @param model
 	 * @return
@@ -223,6 +185,12 @@ public class DtaController {
 		return page;
 	}
 	
+	/**
+	 * 회원 수정, 탈퇴 전 비밀번호 확인
+	 * @param param
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/isRightPwd.do")
 	@ResponseBody
 	public String isRightPwd(@RequestParam Map<String, Object> param, Model model) {
@@ -244,7 +212,12 @@ public class DtaController {
 		
 		return jObj.toString();
 	}
-	// 회원 탈퇴 - 직접 해보기
+	/**
+	 * 회원 탈퇴
+	 * @param param
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/deleteUserInfo.do")
 	@ResponseBody
 	public String deleteUser(@RequestParam Map<String, Object> param, Model model) {

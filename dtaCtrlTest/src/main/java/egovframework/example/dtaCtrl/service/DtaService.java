@@ -21,17 +21,9 @@ public class DtaService extends EgovAbstractMapper {
 		return regist;
 	}
 
-	/**
-	 * 회원 전체 목록 - 추후 삭제
-	 * @return
-	 */
-	public List getAllMembers() {
-		List memberList = selectList("memberSqlSelectMember");
-		return memberList;
-	}
 
 	/**
-	 * 일치 회원 전체 목록
+	 * 회원 전체 목록 - default 전체 조회, 조건 입력 시 해당 회원 조회
 	 * @param param
 	 * @return
 	 */
