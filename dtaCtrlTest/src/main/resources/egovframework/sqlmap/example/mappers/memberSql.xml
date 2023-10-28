@@ -20,16 +20,6 @@
 				  )
 	</insert>
 	
-	<!-- <select id="memberSqlSelectMember" resultType="java.util.HashMap">
-		SELECT 
-			  USERID as 아이디
-			, USERNM as 이름
-			, ADDRESS as 주소
-			, COMMENT as 비고
-		FROM MEMBER
-			WHERE USERID = #{userId}
-	</select> -->
-
 	<select id="memberSqlSelectMember" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 			SELECT 
 				  USERID as 아이디
