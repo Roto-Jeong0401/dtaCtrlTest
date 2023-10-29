@@ -48,7 +48,7 @@
 				<tr>
 					<td colspan="2" style="text-align: center;">
 						<button id="btn_signIn" type="button" onclick="fn_doSignin();" class="btn btn-secondary">회원가입</button>
-						<button type="button" onclick="fn_historyBack();" class="btn btn-light">목록으로</button>
+						<button type="button" onclick="fn_historyBack();" class="btn btn-light">초기화면으로</button>
 					</td>
 				</tr>
 			</table>

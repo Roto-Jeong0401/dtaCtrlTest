@@ -77,6 +77,15 @@ public class DtaController {
 	}
 	
 	/**
+	 * 약관동의페이지로 이동
+	 * @return
+	 */
+	@RequestMapping("/toPolicy.do")
+	public String toPolicy() {
+		return "welcomePolicy";
+	}
+	
+	/**
 	 * 회원가입페이지로 이동
 	 * @return
 	 */
@@ -84,6 +93,7 @@ public class DtaController {
 	public String toSignin() {
 		return "signinPage";
 	}
+	
 	/**
 	 * 로그인페이지로 이동
 	 * @return

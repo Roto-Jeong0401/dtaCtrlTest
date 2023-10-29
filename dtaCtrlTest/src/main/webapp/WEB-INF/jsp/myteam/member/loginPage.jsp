@@ -24,8 +24,8 @@
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align: center;">
-							<button id="btn_doLogin" type="button" onclick="fn_doLogin();" class="btn btn-secondary" disabled="disabled">로그인...</button>
-							<button type="button" onclick="fn_historyBack();" class="btn btn-light">목록으로...</button>
+							<button id="btn_doLogin" type="button" onclick="fn_doLogin();" class="btn btn-secondary" disabled="disabled">로그인페이지로</button>
+							<button type="button" onclick="fn_historyBack();" class="btn btn-light">초기화면으로</button>
 						</td>
 					</tr>
 				</form>

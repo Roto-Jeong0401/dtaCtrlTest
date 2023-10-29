@@ -41,7 +41,7 @@
 	});
 	
 	fn_signIn = function() {
-		window.location = "/toSignin.do";
+		window.location = "/toPolicy.do";
 	}
 	fn_logIn = function() {
 		window.location = "/toLogin.do";
