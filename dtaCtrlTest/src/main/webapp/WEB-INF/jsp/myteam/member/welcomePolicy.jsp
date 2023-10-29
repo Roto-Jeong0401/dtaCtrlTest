@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,70 +19,70 @@
 			<br>
 			<h1>Welcome Policy...</h1>
 			<div class="mb-3">
-			  <label for="exampleFormControlTextarea1" class="form-label">¾à°ü µ¿ÀÇ</label>
+			  <label for="exampleFormControlTextarea1" class="form-label">ì•½ê´€ ë™ì˜</label>
 			  <textarea class="form-control" id="exampleFormControlTextarea1" rows="8">
-			  	Á¦ 1 Àå ÃÑÄ¢
-	          Á¦1Á¶(¸ñÀû)
-	          ¨ç ÀÌ ¾à°üÀº (ÁÖ)dtaCtrlTest(ÀÌÇÏ ¡°º»ºÎ¡±¶ó ÇÑ´Ù)°¡ Á¦°øÇÏ´Â º»ºÎ »ç¾÷ °ü·Ã ¼­ºñ½º(ÀÌÇÏ ¼­ºñ½º¶ó ÇÕ´Ï´Ù)¸¦ ÀÌ¿ëÇÔ¿¡ ÀÖ¾î ÀÌ¿ëÁ¶°Ç ¹× ÀýÂ÷¿Í ±âÅ¸ ÇÊ¿äÇÑ »çÇ×À» ±ÔÁ¤ÇÏ´Â °ÍÀ» ¸ñÀûÀ¸·Î ÇÕ´Ï´Ù.
-	          Á¦2Á¶(¾à°üÀÇ È¿·Â°ú º¯°æ)
-	          ¨ç º» ¾à°üÀº ±× ³»¿ëÀ» ¼­ºñ½º È­¸é¿¡ °Ô½ÃÇÏ°í ÀÌ¿ëÀÚ°¡ ¼­ºñ½ºÈ­¸é¿¡¼­ µ¿ÀÇ ÀÇ»çÇ¥½Ã¸¦ ÇÔÀ¸·Î½á È¿·ÂÀ» ¹ß»ýÇÕ´Ï´Ù.
-	          ¨è º»ºÎ´Â »çÁ¤»ó È¤Àº ¿µ¾÷»ó Áß¿äÇÑ »çÀ¯°¡ ¹ß»ýµÉ °æ¿ì¿¡´Â ¾à°üÀÇ ±ÔÁ¦ µî¿¡ °üÇÑ ¹ý·ü, ÀüÀÚ°Å·¡±âº»¹ý, ÀüÀÚ¼­¸í¹ý, Á¤º¸Åë½Å¸ÁÀÌ¿ëÃËÁø µî¿¡ °üÇÑ ¹ý·ü, ¹æ¹®ÆÇ¸Å µî¿¡ °üÇÑ ¹ý·ü, ¼ÒºñÀÚº¸È£¹ý µî °ü·Ã¹ýÀ» À§¹è ÇÏÁö ¾ÊÀº ¹üÀ§¿¡¼­ ÀÌ ¾à°üÀ» °³Á¤ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	          ¨é º»ºÎ°¡ ¾à°üÀ» °³Á¤ÇÒ °æ¿ì¿¡´Â Àû¿ëÀÏÀÚ ¹× °³Á¤ »çÀ¯¸¦ ¸í½ÃÇÏ¿© ÇöÇà ¾à°ü°ú ÇÔ²² ¼­ºñ½º ÃÊ±âÈ­¸é¿¡ °øÁöÇÏ¸ç, Á¦1Ç×°ú °°Àº ¹æ¹ýÀ¸·Î È¿·ÂÀ» ¹ß»ý½ÃÅµ´Ï´Ù. ´Ü, ±¸ ¾à°ü¿¡ µ¿ÀÇÇÑ ÀÌ¿ëÀÚ°¡ ¾à°ü °³Á¤ Àû¿ëÀÏ ÀÌÈÄ¿¡µµ °è¼Ó º»ºÎÀÇ ¼­ºñ½º¸¦ ÀÌ¿ëÇÏ¸é °³Á¤ ¾à°ü¿¡ ´ëÇØ µ¿ÀÇÇÑ °ÍÀ¸·Î °£ÁÖÇÕ´Ï´Ù.
-	          ¨ê È¸¿øÀº °³Á¤µÈ ¾à°ü¿¡ µ¿ÀÇÇÏÁö ¾ÊÀ» °æ¿ì ¼­ºñ½º ÀÌ¿ëÀ» Áß´ÜÇÏ°í È¸¿ø Å»Åð¸¦ ¿äÃ»ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	          Á¦3Á¶(¾à°ü ¿Ü ÁØÄ¢)
-	          ÀÌ ¾à°ü¿¡ ¸í½ÃµÇÁö ¾ÊÀº »çÇ×Àº °ü°è ¹ý·É¿¡ ±ÔÁ¤µÇ¾î ÀÖÀ» °æ¿ì ±× ±ÔÁ¤¿¡ µû¸£¸ç, ±×·¸Áö ¾ÊÀº °æ¿ì¿¡´Â Á¤ºÎ°¡ Á¦Á¤ÇÑ ÀüÀÚ°Å·¡¼ÒºñÀÚº¸È£ÁöÄ§ ¹× °ü°è¹ý·É ¶Ç´Â ÀÏ¹ÝÀûÀÎ °ü·Ê¿¡ µû¸¨´Ï´Ù.
-	          Á¦4Á¶(¿ë¾îÀÇ Á¤ÀÇ)
-	          º» ¾à°ü¿¡¼­ »ç¿ëÇÏ´Â ¿ë¾îÀÇ Á¤ÀÇ´Â ´ÙÀ½°ú °°½À´Ï´Ù.
-	          ¨ç ¼­ºñ½º : º»ºÎ È¨ÆäÀÌÁö ¹× º»ºÎ¿Í ¿¬°èµÈ È¨ÆäÀÌÁö¸¦ ¸»ÇÕ´Ï´Ù.
-	          ¨è º»ºÎ°¡ Á¦°øÇÏ´Â ¼­ºñ½º¸¦ ¹Þ´Â ÀÚ¸¦ ÅëÄª ÀÌ¿ëÀÚ¶ó°í ÇÕ´Ï´Ù. ÀÌ¿ëÀÚ´Â ºñÈ¸¿ø, È¸¿øÀ¸·Î ±¸¼ºµË´Ï´Ù.
-	          1. ºñÈ¸¿ø : È¸¿ø¿¡ °¡ÀÔÇÏÁö ¾Ê°í º»ºÎ¿¡¼­ Á¦°øÇÏ´Â ÀÏºÎ ¼­ºñ½º¸¦ ÀÌ¿ëÇÏ´Â ÀÚ¸¦ ¸»ÇÕ´Ï´Ù.
-	          2. È¸¿ø : °¡ÀÔ½ÅÃ»À» ÇÒ °æ¿ì ÀÚµ¿ÀûÀ¸·Î µî·ÏµÇ¸ç, º»ºÎ¿¡ °³ÀÎÁ¤º¸¸¦ Á¦°øÇÏ¿© È¸¿øµî·ÏÀ» ÇÑ ÀÚ·Î¼­, º»ºÎÀÇ Á¤º¸¸¦ Áö¼ÓÀûÀ¸·Î Á¦°ø¹ÞÀ¸¸ç, º»ºÎ¿¡¼­ Á¦°øÇÏ´Â ¼­ºñ½º¸¦ °è¼ÓÀûÀ¸·Î ÀÌ¿ëÇÒ ¼ö ÀÖ´Â ÀÚ¸¦ ¸»ÇÕ´Ï´Ù.
-	          ¨é ID : È¸¿øÀÇ ½Äº°°ú ¼­ºñ½º ÀÌ¿ëÀ» À§ÇÏ¿© È¸¿øÀÌ Á¤ÇÏ°í º»ºÎ°¡ ½ÂÀÎÇÏ´Â ¹®ÀÚ ¶Ç´Â ¼ýÀÚÀÇ Á¶ÇÕÀ» ¸»ÇÕ´Ï´Ù.
-	          ¨ê ºñ¹Ð¹øÈ£ : È¸¿øÀÇ º»ÀÎ È®ÀÎ°ú ºñ¹Ðº¸È£¸¦ À§ÇÏ¿© ¼±Á¤ÇÑ ¹®ÀÚ, ¼ýÀÚ ¶Ç´Â ¾çÀÚÀÇ Á¶ÇÕÀ» ¸»ÇÕ´Ï´Ù.
-	          ¨ë ÇØÁö : È¸¿øÀÌ "¼­ºñ½º" ÀÌ¿ë°è¾à Ã¼°á ÈÄ ÀÌ¿ë°è¾àÀÇ È¿·ÂÀ» »ó½Ç½ÃÅ°´Â ÇàÀ§¸¦ ¸»ÇÕ´Ï´Ù.
-	          ¨ì ÀÌ ¾à°ü¿¡¼­ »ç¿ëÇÏ´Â ¿ë¾îÀÇ Á¤ÀÇ´Â À§¿¡ Á¤ÇÏ´Â °ÍÀ» Á¦¿ÜÇÏ°í´Â °ü°è ¹ý·É ¹× ¼­ºñ½ºº° È¨ÆäÀÌÁö ¾È³»¿¡¼­ Á¤ÇÏ´Â ¹Ù¿¡ ÀÇÇÕ´Ï´Ù.
+			  	ì œ 1 ìž¥ ì´ì¹™
+	          ì œ1ì¡°(ëª©ì )
+	          â‘  ì´ ì•½ê´€ì€ (ì£¼)dtaCtrlTest(ì´í•˜ â€œë³¸ë¶€â€ë¼ í•œë‹¤)ê°€ ì œê³µí•˜ëŠ” ë³¸ë¶€ ì‚¬ì—… ê´€ë ¨ ì„œë¹„ìŠ¤(ì´í•˜ ì„œë¹„ìŠ¤ë¼ í•©ë‹ˆë‹¤)ë¥¼ ì´ìš©í•¨ì— ìžˆì–´ ì´ìš©ì¡°ê±´ ë° ì ˆì°¨ì™€ ê¸°íƒ€ í•„ìš”í•œ ì‚¬í•­ì„ ê·œì •í•˜ëŠ” ê²ƒì„ ëª©ì ìœ¼ë¡œ í•©ë‹ˆë‹¤.
+	          ì œ2ì¡°(ì•½ê´€ì˜ íš¨ë ¥ê³¼ ë³€ê²½)
+	          â‘  ë³¸ ì•½ê´€ì€ ê·¸ ë‚´ìš©ì„ ì„œë¹„ìŠ¤ í™”ë©´ì— ê²Œì‹œí•˜ê³  ì´ìš©ìžê°€ ì„œë¹„ìŠ¤í™”ë©´ì—ì„œ ë™ì˜ ì˜ì‚¬í‘œì‹œë¥¼ í•¨ìœ¼ë¡œì¨ íš¨ë ¥ì„ ë°œìƒí•©ë‹ˆë‹¤.
+	          â‘¡ ë³¸ë¶€ëŠ” ì‚¬ì •ìƒ í˜¹ì€ ì˜ì—…ìƒ ì¤‘ìš”í•œ ì‚¬ìœ ê°€ ë°œìƒë  ê²½ìš°ì—ëŠ” ì•½ê´€ì˜ ê·œì œ ë“±ì— ê´€í•œ ë²•ë¥ , ì „ìžê±°ëž˜ê¸°ë³¸ë²•, ì „ìžì„œëª…ë²•, ì •ë³´í†µì‹ ë§ì´ìš©ì´‰ì§„ ë“±ì— ê´€í•œ ë²•ë¥ , ë°©ë¬¸íŒë§¤ ë“±ì— ê´€í•œ ë²•ë¥ , ì†Œë¹„ìžë³´í˜¸ë²• ë“± ê´€ë ¨ë²•ì„ ìœ„ë°° í•˜ì§€ ì•Šì€ ë²”ìœ„ì—ì„œ ì´ ì•½ê´€ì„ ê°œì •í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	          â‘¢ ë³¸ë¶€ê°€ ì•½ê´€ì„ ê°œì •í•  ê²½ìš°ì—ëŠ” ì ìš©ì¼ìž ë° ê°œì • ì‚¬ìœ ë¥¼ ëª…ì‹œí•˜ì—¬ í˜„í–‰ ì•½ê´€ê³¼ í•¨ê»˜ ì„œë¹„ìŠ¤ ì´ˆê¸°í™”ë©´ì— ê³µì§€í•˜ë©°, ì œ1í•­ê³¼ ê°™ì€ ë°©ë²•ìœ¼ë¡œ íš¨ë ¥ì„ ë°œìƒì‹œí‚µë‹ˆë‹¤. ë‹¨, êµ¬ ì•½ê´€ì— ë™ì˜í•œ ì´ìš©ìžê°€ ì•½ê´€ ê°œì • ì ìš©ì¼ ì´í›„ì—ë„ ê³„ì† ë³¸ë¶€ì˜ ì„œë¹„ìŠ¤ë¥¼ ì´ìš©í•˜ë©´ ê°œì • ì•½ê´€ì— ëŒ€í•´ ë™ì˜í•œ ê²ƒìœ¼ë¡œ ê°„ì£¼í•©ë‹ˆë‹¤.
+	          â‘£ íšŒì›ì€ ê°œì •ëœ ì•½ê´€ì— ë™ì˜í•˜ì§€ ì•Šì„ ê²½ìš° ì„œë¹„ìŠ¤ ì´ìš©ì„ ì¤‘ë‹¨í•˜ê³  íšŒì› íƒˆí‡´ë¥¼ ìš”ì²­í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	          ì œ3ì¡°(ì•½ê´€ ì™¸ ì¤€ì¹™)
+	          ì´ ì•½ê´€ì— ëª…ì‹œë˜ì§€ ì•Šì€ ì‚¬í•­ì€ ê´€ê³„ ë²•ë ¹ì— ê·œì •ë˜ì–´ ìžˆì„ ê²½ìš° ê·¸ ê·œì •ì— ë”°ë¥´ë©°, ê·¸ë ‡ì§€ ì•Šì€ ê²½ìš°ì—ëŠ” ì •ë¶€ê°€ ì œì •í•œ ì „ìžê±°ëž˜ì†Œë¹„ìžë³´í˜¸ì§€ì¹¨ ë° ê´€ê³„ë²•ë ¹ ë˜ëŠ” ì¼ë°˜ì ì¸ ê´€ë¡€ì— ë”°ë¦…ë‹ˆë‹¤.
+	          ì œ4ì¡°(ìš©ì–´ì˜ ì •ì˜)
+	          ë³¸ ì•½ê´€ì—ì„œ ì‚¬ìš©í•˜ëŠ” ìš©ì–´ì˜ ì •ì˜ëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
+	          â‘  ì„œë¹„ìŠ¤ : ë³¸ë¶€ í™ˆíŽ˜ì´ì§€ ë° ë³¸ë¶€ì™€ ì—°ê³„ëœ í™ˆíŽ˜ì´ì§€ë¥¼ ë§í•©ë‹ˆë‹¤.
+	          â‘¡ ë³¸ë¶€ê°€ ì œê³µí•˜ëŠ” ì„œë¹„ìŠ¤ë¥¼ ë°›ëŠ” ìžë¥¼ í†µì¹­ ì´ìš©ìžë¼ê³  í•©ë‹ˆë‹¤. ì´ìš©ìžëŠ” ë¹„íšŒì›, íšŒì›ìœ¼ë¡œ êµ¬ì„±ë©ë‹ˆë‹¤.
+	          1. ë¹„íšŒì› : íšŒì›ì— ê°€ìž…í•˜ì§€ ì•Šê³  ë³¸ë¶€ì—ì„œ ì œê³µí•˜ëŠ” ì¼ë¶€ ì„œë¹„ìŠ¤ë¥¼ ì´ìš©í•˜ëŠ” ìžë¥¼ ë§í•©ë‹ˆë‹¤.
+	          2. íšŒì› : ê°€ìž…ì‹ ì²­ì„ í•  ê²½ìš° ìžë™ì ìœ¼ë¡œ ë“±ë¡ë˜ë©°, ë³¸ë¶€ì— ê°œì¸ì •ë³´ë¥¼ ì œê³µí•˜ì—¬ íšŒì›ë“±ë¡ì„ í•œ ìžë¡œì„œ, ë³¸ë¶€ì˜ ì •ë³´ë¥¼ ì§€ì†ì ìœ¼ë¡œ ì œê³µë°›ìœ¼ë©°, ë³¸ë¶€ì—ì„œ ì œê³µí•˜ëŠ” ì„œë¹„ìŠ¤ë¥¼ ê³„ì†ì ìœ¼ë¡œ ì´ìš©í•  ìˆ˜ ìžˆëŠ” ìžë¥¼ ë§í•©ë‹ˆë‹¤.
+	          â‘¢ ID : íšŒì›ì˜ ì‹ë³„ê³¼ ì„œë¹„ìŠ¤ ì´ìš©ì„ ìœ„í•˜ì—¬ íšŒì›ì´ ì •í•˜ê³  ë³¸ë¶€ê°€ ìŠ¹ì¸í•˜ëŠ” ë¬¸ìž ë˜ëŠ” ìˆ«ìžì˜ ì¡°í•©ì„ ë§í•©ë‹ˆë‹¤.
+	          â‘£ ë¹„ë°€ë²ˆí˜¸ : íšŒì›ì˜ ë³¸ì¸ í™•ì¸ê³¼ ë¹„ë°€ë³´í˜¸ë¥¼ ìœ„í•˜ì—¬ ì„ ì •í•œ ë¬¸ìž, ìˆ«ìž ë˜ëŠ” ì–‘ìžì˜ ì¡°í•©ì„ ë§í•©ë‹ˆë‹¤.
+	          â‘¤ í•´ì§€ : íšŒì›ì´ "ì„œë¹„ìŠ¤" ì´ìš©ê³„ì•½ ì²´ê²° í›„ ì´ìš©ê³„ì•½ì˜ íš¨ë ¥ì„ ìƒì‹¤ì‹œí‚¤ëŠ” í–‰ìœ„ë¥¼ ë§í•©ë‹ˆë‹¤.
+	          â‘¥ ì´ ì•½ê´€ì—ì„œ ì‚¬ìš©í•˜ëŠ” ìš©ì–´ì˜ ì •ì˜ëŠ” ìœ„ì— ì •í•˜ëŠ” ê²ƒì„ ì œì™¸í•˜ê³ ëŠ” ê´€ê³„ ë²•ë ¹ ë° ì„œë¹„ìŠ¤ë³„ í™ˆíŽ˜ì´ì§€ ì•ˆë‚´ì—ì„œ ì •í•˜ëŠ” ë°”ì— ì˜í•©ë‹ˆë‹¤.
 	          
 	          .............................................
 	          
-	          Á¦ 5 Àå °üÇÒ¹ý¿ø
-	          Á¦17Á¶(°üÇÒ¹ý¿ø)
-	          ¨ç º»ºÎ¿Í È¸¿øÀº "¼­ºñ½º" ¿Í °ü·ÃÇÏ¿© ¹ß»ýÇÑ ºÐÀïÀ» ¿ø¸¸ÇÏ°Ô ÇØ°áÇÏ±â À§ÇÏ¿© ÇÊ¿äÇÑ ¸ðµç ³ë·ÂÀ» ÇÏ¿©¾ß ÇÕ´Ï´Ù.
-	          ¨è Á¦1Ç×ÀÇ ±ÔÁ¤¿¡µµ ºÒ±¸ÇÏ°í "¼­ºñ½º" ¿Í °ü·ÃµÇ¾î ºÐÀïÀÌ ¹ß»ýÇÒ °æ¿ì ´ëÇÑ¹Î±¹¹ýÀ» Àû¿ëÇÏ¸ç, º» ºÐÀïÀ¸·Î ÀÎÇÑ ¼Ò´Â ´ëÇÑ¹Î±¹ÀÇ ¹ý¿ø¿¡ Á¦±âÇÕ´Ï´Ù.
-	          ¨é º»ºÎ¿Í È¸¿ø °£ ¹ß»ýÇÑ ºÐÀï¿¡ °üÇÑ ¼Ò¼ÛÀº ¹Î»ç¼Ò¼Û¹ý »óÀÇ °üÇÒ¹ý¿ø¿¡ Á¦¼ÒÇÕ´Ï´Ù.
-	          ºÎ Ä¢
-	          ½ÃÇàÀÏ) ÀÌ ¾à°üÀº 2017³â 1¿ù 1ÀÏºÎÅÍ ½ÃÇàÇÕ´Ï´Ù.
+	          ì œ 5 ìž¥ ê´€í• ë²•ì›
+	          ì œ17ì¡°(ê´€í• ë²•ì›)
+	          â‘  ë³¸ë¶€ì™€ íšŒì›ì€ "ì„œë¹„ìŠ¤" ì™€ ê´€ë ¨í•˜ì—¬ ë°œìƒí•œ ë¶„ìŸì„ ì›ë§Œí•˜ê²Œ í•´ê²°í•˜ê¸° ìœ„í•˜ì—¬ í•„ìš”í•œ ëª¨ë“  ë…¸ë ¥ì„ í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.
+	          â‘¡ ì œ1í•­ì˜ ê·œì •ì—ë„ ë¶ˆêµ¬í•˜ê³  "ì„œë¹„ìŠ¤" ì™€ ê´€ë ¨ë˜ì–´ ë¶„ìŸì´ ë°œìƒí•  ê²½ìš° ëŒ€í•œë¯¼êµ­ë²•ì„ ì ìš©í•˜ë©°, ë³¸ ë¶„ìŸìœ¼ë¡œ ì¸í•œ ì†ŒëŠ” ëŒ€í•œë¯¼êµ­ì˜ ë²•ì›ì— ì œê¸°í•©ë‹ˆë‹¤.
+	          â‘¢ ë³¸ë¶€ì™€ íšŒì› ê°„ ë°œìƒí•œ ë¶„ìŸì— ê´€í•œ ì†Œì†¡ì€ ë¯¼ì‚¬ì†Œì†¡ë²• ìƒì˜ ê´€í• ë²•ì›ì— ì œì†Œí•©ë‹ˆë‹¤.
+	          ë¶€ ì¹™
+	          ì‹œí–‰ì¼) ì´ ì•½ê´€ì€ 2017ë…„ 1ì›” 1ì¼ë¶€í„° ì‹œí–‰í•©ë‹ˆë‹¤.
 			  </textarea>
 			</div>
 			<div class="mb-3 form-check">
 			    <input type="checkbox" class="form-check-input" id="isCheck1">
-			    <label class="form-check-label" for="isCheck1">[ÇÊ¼ö] ¾à°ü µ¿ÀÇ</label>
+			    <label class="form-check-label" for="isCheck1">[í•„ìˆ˜] ì•½ê´€ ë™ì˜</label>
 		    </div>
 			<div class="mb-3">
-			  <label for="exampleFormControlTextarea1" class="form-label">°³ÀÎÁ¤º¸ ¼öÁýµ¿ÀÇ</label>
+			  <label for="exampleFormControlTextarea1" class="form-label">ê°œì¸ì •ë³´ ìˆ˜ì§‘ë™ì˜</label>
 			  <textarea class="form-control" id="exampleFormControlTextarea2" rows="3">
-			  	(ÁÖ)dtaCtrlTest´Â ´ç »çÀÌÆ® ¼­ºñ½º °¡ÀÔ½Ã ±âÀç¸¦ ¿ä±¸ÇÏ´Â È¸¿øÀÇ °³ÀÎÁ¤º¸´Â º» ÀÌ¿ë°è¾àÀÇ ÀÌÇà°ú º» ÀÌ¿ë°è¾à»óÀÇ ¼­ºñ½ºÁ¦°øÀ» À§ÇÑ ¸ñÀûÀ¸·Î °³ÀÎ Á¤º¸¸¦ ¼öÁý¡¤ÀÌ¿ëÇÕ´Ï´Ù.
+			  	(ì£¼)dtaCtrlTestëŠ” ë‹¹ ì‚¬ì´íŠ¸ ì„œë¹„ìŠ¤ ê°€ìž…ì‹œ ê¸°ìž¬ë¥¼ ìš”êµ¬í•˜ëŠ” íšŒì›ì˜ ê°œì¸ì •ë³´ëŠ” ë³¸ ì´ìš©ê³„ì•½ì˜ ì´í–‰ê³¼ ë³¸ ì´ìš©ê³„ì•½ìƒì˜ ì„œë¹„ìŠ¤ì œê³µì„ ìœ„í•œ ëª©ì ìœ¼ë¡œ ê°œì¸ ì •ë³´ë¥¼ ìˆ˜ì§‘Â·ì´ìš©í•©ë‹ˆë‹¤.
 			  </textarea>
 			</div>
 			<div class="mb-3 form-check">
 			    <input type="checkbox" class="form-check-input" id="isCheck2">
-			    <label class="form-check-label" for="isCheck2">[ÇÊ¼ö] °³ÀÎÁ¤º¸ ¼öÁýµ¿ÀÇ</label>
+			    <label class="form-check-label" for="isCheck2">[í•„ìˆ˜] ê°œì¸ì •ë³´ ìˆ˜ì§‘ë™ì˜</label>
 		    </div>
 			<div class="mb-3">
-			  <label for="exampleFormControlTextarea1" class="form-label">¸¶ÄÉÆÃÁ¤º¸ È°¿ëµ¿ÀÇ</label>
+			  <label for="exampleFormControlTextarea1" class="form-label">ë§ˆì¼€íŒ…ì •ë³´ í™œìš©ë™ì˜</label>
 			  <textarea class="form-control" id="exampleFormControlTextarea3" rows="3">
-			  	(ÁÖ)dtaCtrlTest´Â ´ç »çÀÌÆ® ¼­ºñ½º °¡ÀÔ½Ã ¼­ºñ½ºÁ¦°øÀ» À§ÇÑ ¸ñÀûÀ¸·Î ÀÚ°ÝÁõ Á¤º¸¸¦ ÀÌ¿ëÇÕ´Ï´Ù.
+			  	(ì£¼)dtaCtrlTestëŠ” ë‹¹ ì‚¬ì´íŠ¸ ì„œë¹„ìŠ¤ ê°€ìž…ì‹œ ì„œë¹„ìŠ¤ì œê³µì„ ìœ„í•œ ëª©ì ìœ¼ë¡œ ìžê²©ì¦ ì •ë³´ë¥¼ ì´ìš©í•©ë‹ˆë‹¤.
 			  </textarea>
 			</div>
 			<div class="mb-3 form-check">
 			    <input type="checkbox" class="form-check-input" id="isCheck3">
-			    <label class="form-check-label" for="isCheck3">[¼±ÅÃ] ¸¶ÄÉÆÃÁ¤º¸ È°¿ëµ¿ÀÇ</label>
+			    <label class="form-check-label" for="isCheck3">[ì„ íƒ] ë§ˆì¼€íŒ…ì •ë³´ í™œìš©ë™ì˜</label>
 		    </div>
 			<div class="mb-3 form-check">
 			    <input type="checkbox" class="form-check-input" onclick="fn_allCheck();" id="isCheck4">
-			    <label class="form-check-label" for="isCheck4">ÀüÃ¼ µ¿ÀÇ</label>
+			    <label class="form-check-label" for="isCheck4">ì „ì²´ ë™ì˜</label>
 		    </div>
-				<button type="button" onclick="fn_neccessaryCheck();" class="btn btn-secondary">È¸¿ø°¡ÀÔÁøÇà</button>
-				<button type="button" onclick="location.href='/index.do'" class="btn btn-light">ÃÊ±âÈ­¸éÀ¸·Î</button>
+				<button type="button" onclick="fn_neccessaryCheck();" class="btn btn-secondary">íšŒì›ê°€ìž…ì§„í–‰</button>
+				<button type="button" onclick="location.href='/index.do'" class="btn btn-light">ì´ˆê¸°í™”ë©´ìœ¼ë¡œ</button>
 			</div>
 		</div>
 	</div>
@@ -99,7 +99,7 @@
 		if(check1 == true && check2 == true) {
 			window.location = "/toSignin.do";
 		}else {
-			alert("ÇÊ¼öÇ×¸ñÀ» È®ÀÎÇØÁÖ¼¼¿ä.");
+			alert("í•„ìˆ˜í•­ëª©ì„ í™•ì¸í•´ì£¼ì„¸ìš”.");
 		}
 	}
 	
