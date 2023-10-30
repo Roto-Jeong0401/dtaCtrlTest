@@ -15,8 +15,13 @@
 			<br>
 			<h1>Welcome Begin...</h1>
 			<div style="display: flex; float: right;">
-				<input type="text" id="tofindUser" style="width: 300px;" placeholder="검색하려면 아이디를 입력하세요." onkeyup="fn_searchMember();">
-				<button style="margin-left: 10px;" type="button" class="btn btn-primary">검색</button>
+				<!-- 콤보박스 추가(검색조건) -->
+				<select class="form-select form-select-lg mb-3" id="condition" aria-label="Large select example" onclick="fn_searchMember();" style="width: 280px;">
+				  <option selected>검색조건을 선택하세요.</option>
+				  <option value="userId">아이디</option>
+				  <option value="userNm">이름</option>
+				</select>
+				<input type="text" id="tofindUser" style="width: 180px; height: 50px; margin-left: 10px;" placeholder="검색어를 입력하세요." onkeyup="fn_searchMember();">				
 			</div>
 			<br><br>
 			<table class="table table-bordered">
@@ -48,8 +53,11 @@
 	}
 	
 	fn_searchMember = function () {
+		var condition = $("#condition").val();
+		// alert(condition);
 		data = {
-				'userId': $("#tofindUser").val()
+				'user': $("#tofindUser").val(),
+				'condition': condition
 		}
 		$.ajax({
 			type: 'GET',
@@ -62,11 +70,6 @@
 					console.log("response.list.length: "+response.list.length);
 					
 					var jsonArray = response.list;
-					
-					// 특정 컬럼만 조회 설정?할까? -> 쿼리문 수정함
-					/* for(var i=0; i<response.list.length; i++) {
-						console.log("["+i+"] "+jsonArray[i].USERID);
-					} */
 					
 					// HTML 테이블 생성
 					var tableHtml = '<table><thead><tr>';

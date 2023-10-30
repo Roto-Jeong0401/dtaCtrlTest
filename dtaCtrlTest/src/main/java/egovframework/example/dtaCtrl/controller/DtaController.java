@@ -48,7 +48,8 @@ public class DtaController {
 	public String getAllMembers(@RequestParam Map<String, Object> param, Model model) {
 		
 		ModelAndView mav = new ModelAndView("index");
-		System.out.println("param.get('userId'): "+param.get("userId"));
+		// 검색조건에 따라서 입력값을 id, name으로 변경
+		System.out.println("param.get('user'): "+param.get("user")+" ,param.get('condition'): "+param.get("condition"));
 		Map<String, Object> response = new HashMap<String, Object>();
 		List<Map<String, Object>> memberList = dtaService.getFindMembers(param);
 		try {

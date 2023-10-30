@@ -20,6 +20,7 @@
 				  )
 	</insert>
 	
+	<!-- 검색조건 추가 -->
 	<select id="memberSqlSelectMember" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 			SELECT 
 				  USERID as 아이디
@@ -28,9 +29,17 @@
 				, COMMENT as 비고
 			FROM MEMBER
 			<where>
-				<if test='userId != null'>
-					AND USERID LIKE CONCAT('%', #{userId}, '%')
-		 		</if>
+				<choose>
+		            <when test="condition == 'userId'">
+		                AND USERID LIKE CONCAT('%', #{user}, '%')
+		            </when>
+		            <when test="condition == 'userNm'">
+		                AND USERNM LIKE CONCAT('%', #{user}, '%')
+		            </when>
+		            <otherwise>
+		                AND 1 = 1
+		            </otherwise>
+		        </choose>
 	 		</where>
 	</select>
 	
