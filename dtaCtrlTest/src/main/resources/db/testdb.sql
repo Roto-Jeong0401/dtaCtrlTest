@@ -1,0 +1,11 @@
+CREATE MEMORY TABLE MEMBER (USERID VARCHAR(20), USERNM VARCHAR(30), PASSWD VARCHAR(30), ADDRESS VARCHAR(50), COMMENT VARCHAR(100), primary KEY(USERID))
+CREATE MEMORY TABLE IDS (TABLE_NAME VARCHAR(16) NOT NULL PRIMARY KEY,NEXT_ID DECIMAL(30) NOT NULL)
+SET SCHEMA PUBLIC
+INSERT INTO MEMBER VALUES('jms@sootechsys.co.kr', 'minsu', '1111', '경기도', '안녕?')
+INSERT INTO MEMBER VALUES('jgs@sootechsys.co.kr', 'gwangsu', '2222', '서울', 'ㅎㅇㅇ')
+INSERT INTO MEMBER VALUES('jjs@sootechsys.co.kr', 'jinsu', '3333', '가평', 'ㅋㅋㅋ')
+INSERT INTO MEMBER VALUES('jeh@sootechsys.co.kr', 'ehyun', '4444', '서울', 'ㅎㅎㅎ')
+INSERT INTO MEMBER VALUES('kej@sootechsys.co.kr', 'eunjin', '5555', '부평', 'ㅇㅇㅇ')
+INSERT INTO MEMBER VALUES('eha@sootechsys.co.kr', 'hyuna', '6666', '인천', '???')
+INSERT INTO MEMBER VALUES('khn@sootechsys.co.kr', 'hana', '7777', '남양주', '??!!')
+INSERT INTO IDS VALUES('MEMBER',7)
