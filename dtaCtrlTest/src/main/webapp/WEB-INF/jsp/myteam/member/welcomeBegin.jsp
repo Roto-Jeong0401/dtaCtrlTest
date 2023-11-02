@@ -14,36 +14,103 @@
 		<div class="content">
 			<br>
 			<h1>Welcome Begin...</h1>
-			<div style="display: flex; float: right;">
-				<!-- 콤보박스 추가(검색조건) -->
-				<select class="form-select form-select-lg mb-3" id="condition" aria-label="Large select example" onclick="fn_searchMember();" style="width: 280px;">
-				  <option selected>검색조건을 선택하세요.</option>
-				  <option value="userId">아이디</option>
-				  <option value="userNm">이름</option>
-				</select>
-				<input type="text" id="tofindUser" style="width: 180px; height: 50px; margin-left: 10px;" placeholder="검색어를 입력하세요." onkeyup="fn_searchMember();">				
-			</div>
-			<br><br>
-			<table class="table table-bordered">
-				<tbody id="table-container">
+			<form action="/toFindMemberByBtn.do" method="post">
+				<div style="display: flex; float: right;">
+					<div style="line-height: 48px; margin-right: 10px;">
+						<input type="checkbox" id="checkAjax" onchange="fn_changeMethod();">
+						<p style="margin-top: 0; margin-bottom: 1rem; display: inline-block;">체크시 실시간 호출합니다.</p>
+					</div>
+					<!-- 콤보박스 추가(검색조건) -->
+					<select class="form-select form-select-lg mb-3" id="condition" name="condition" aria-label="Large select example" onclick="fn_searchMember();" style="width: 280px;">
+					  <option selected>검색조건을 선택하세요.</option>
+					  <option value="userId">아이디</option>
+					  <option value="userNm">이름</option>
+					</select>
+					<input type="text" id="tofindUser" name="user" style="width: 180px; height: 50px; margin-left: 10px;" placeholder="검색어를 입력하세요." onkeyup="fn_searchMember();">
+					<button type="button" id="btn_search" class="btn btn-primary" style="margin-left: 10px; height: 50px; width: 100px;" onclick="fn_btnSearchMember();">검색</button>
+					<br>
+				</div>
+				<br><br>
+				<table class="table table-bordered">
+					<c:choose>
+						<c:when test="${not empty memberList}">
+							<c:forEach items="${memberList }" var="memberList">
+								<thead id="table_header">
+									<tr>
+										<td>이름</td><td>아이디</td><td>주소</td><td>비고</td>
+									</tr>
+								</thead>
+								<tbody id="table-container">
+									<tr>
+										<td>${memberList.USERNM }</td>
+										<td>${memberList.USERID }</td>
+										<td>${memberList.ADDRESS }</td>
+										<td>${memberList.COMMENT }</td>
+									</tr>
+								</tbody>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<thead id="table_header">
+								<tr>
+									<td>이름</td><td>아이디</td><td>주소</td><td>비고</td>
+								</tr>
+							</thead>
+							<tbody id="table-container">
+									<tr>
+										<td colspan="4" style="text-align: center;">데이터가 존재하지 않습니다.</td>
+									</tr>
+								</tbody>
+						</c:otherwise>
+					</c:choose>
 					<tr>
-						<td colspan="4">데이터가 존재하지 않습니다.</td>
+						<td colspan="4" style="text-align: center;">
+							<button type="button" onclick="fn_signIn();" class="btn btn-secondary">회원가입페이지로...</button>
+							<button type="button" onclick="fn_logIn();" class="btn btn-light">로그인페이지로...</button>
+						</td>
 					</tr>
-				</tbody>
-				<tr>
-					<td colspan="4" style="text-align: center;">
-						<button type="button" onclick="fn_signIn();" class="btn btn-secondary">회원가입페이지로...</button>
-						<button type="button" onclick="fn_logIn();" class="btn btn-light">로그인페이지로...</button>
-					</td>
-				</tr>
-			</table>
+				</table>
+			</form>
 		</div>
 	</div>
 </body>
 <script>
 	$(document).ready(function(){
-		fn_searchMember();
+		// fn_searchMember();
+		var condition = $("#condition");
+		var toFindUser = $("#tofindUser");
+		// 체크 해제 default - onkeyup 속성 삭제
+		condition.removeAttr("onclick");
+		toFindUser.removeAttr("onkeyup");
 	});
+	
+	fn_changeMethod = function() { 
+		var condition = $("#condition");
+		var toFindUser = $("#tofindUser");
+		var checkAjax = $("#checkAjax").is(":checked");
+		
+		if(checkAjax == false) {
+			// 체크 해제 시 - onkeyup 속성 삭제
+			// window.location.reload();
+			window.location = "/index.do";
+		}else if(checkAjax == true) {
+			// 체크 시 - onkeyup, onclick 속성 재부여
+			// $("#table-container").empty();
+			// $("#table_header").remove();
+			$("#btn_search").attr("disabled", true);
+			condition.attr("onclick", "fn_searchMember();");
+			toFindUser.attr("onkeyup", "fn_searchMember();");
+		}
+	}
+	
+	fn_btnSearchMember = function() { 
+		var selected = $("#condition").val();
+		if(!(selected == "userId" || selected == "userNm")) {
+			$("#condition").prop("")
+		}else {
+			$("form").submit();
+		}
+	}
 	
 	fn_signIn = function() {
 		window.location = "/toPolicy.do";
@@ -54,7 +121,9 @@
 	
 	fn_searchMember = function () {
 		var condition = $("#condition").val();
-		// alert(condition);
+		// var pathname = window.location.pathname;
+		
+		// alert(pathname);
 		data = {
 				'user': $("#tofindUser").val(),
 				'condition': condition
@@ -73,9 +142,12 @@
 					
 					// HTML 테이블 생성
 					var tableHtml = '<table><thead><tr>';
+					
+					// 기존 테이블 헤더 제거
+					$("#table_header").remove();
 					var dataRowHtml = '';
 
-					jsonArray.forEach(function(item, index) {
+					jsonArray.forEach(function(item, index) { 
 					    if (index === 0) {
 					        // 첫 번째 데이터 행을 이용하여 컬럼 제목 생성
 					        for (var key in item) {

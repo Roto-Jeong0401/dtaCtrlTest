@@ -1,6 +1,8 @@
 package egovframework.example.dtaCtrl.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +41,7 @@ public class DtaController {
 	
 	/**
 	 * 메인화면 초기 로드시 회원목록 조회/ default - 검색조건 없음, 아이디 입력 시 해당 아이디로 목록 조회
+	 * 변경: 메인화면에서 검색조건 선택시 메소드 - default 검색조건 없이 조회
 	 * @param param
 	 * @param model
 	 * @return
@@ -58,8 +61,21 @@ public class DtaController {
 					System.out.println("조회 성공");
 					System.out.println("memberList: "+ memberList);
 					System.out.println("memberList.get(0): "+ memberList.get(0));
+					
+					ArrayList<Map<String, String>> memberArray = new ArrayList<>();
+					
+					for(int i=0; i<memberList.size(); i++) {
+						Map<String, String> row = new LinkedHashMap<>();
+						row.put("이름", (String) memberList.get(i).get("USERNM"));
+						row.put("아이디", (String) memberList.get(i).get("USERID"));
+						row.put("주소", (String) memberList.get(i).get("ADDRESS"));
+						row.put("비고", (String) memberList.get(i).get("COMMENT"));
+						memberArray.add(row);
+					}
+					System.out.println("memberArray: "+memberArray);
 					model.addAttribute("what", "success");
-					model.addAttribute("list", memberList);
+					// model.addAttribute("list", memberList);
+					model.addAttribute("list", memberArray);
 				}else {
 					System.out.println("조회 실패");
 					model.addAttribute("what", "fail");
@@ -75,6 +91,46 @@ public class DtaController {
 		JSONObject jObj = new JSONObject((Map) model);
 		
 		return jObj.toString();
+	}
+	
+	/**
+	 * 검색버튼을 이용한 조회
+	 * @param condition
+	 * @param user
+	 * @return
+	 */
+	@SuppressWarnings("unused")
+	@RequestMapping("/toFindMemberByBtn.do")
+	public ModelAndView toFindMemberByBtn(@RequestParam String condition, String user) {
+		System.out.println("검색조건: "+condition+", 검색어: "+user);
+		ModelAndView mav = new ModelAndView("welcomeBegin");
+		Map<String, Object> pMap = new HashMap();
+		pMap.put("condition", condition);
+		pMap.put("user", user);
+		List<Map<String, Object>> memberList = new ArrayList<Map<String, Object>>();
+		try {
+			if(!(condition == null || condition == "" || condition.equals("")) && !(user == null || user == "" || user.equals(""))) {
+				memberList = dtaService.getFindMembers(pMap);
+				
+				if(memberList.size() != 0) {
+					if(!memberList.isEmpty() || memberList != null || !memberList.equals("")) {
+						System.out.println("조회 성공: "+memberList);
+						mav.addObject("memberList", memberList);
+					}else {
+						System.out.println("조회 실패");
+					}
+				}else {
+					System.out.println("조회 결과 없음");
+				}
+			}else {
+				System.out.println("검색조건이나 검색어가 없음");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return mav;
 	}
 	
 	/**

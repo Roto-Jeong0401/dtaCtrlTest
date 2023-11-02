@@ -22,18 +22,24 @@
 	
 	<!-- 검색조건 추가 -->
 	<select id="memberSqlSelectMember" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-			SELECT 
+			<!-- SELECT 
 				  USERID as 아이디
 				, USERNM as 이름
 				, ADDRESS as 주소
 				, COMMENT as 비고
+			FROM MEMBER -->
+			SELECT 
+				  USERID 
+				, USERNM 
+				, ADDRESS
+				, COMMENT
 			FROM MEMBER
 			<where>
 				<choose>
-		            <when test="condition == 'userId'">
+		            <when test="condition != null and condition == 'userId'">
 		                AND USERID LIKE CONCAT('%', #{user}, '%')
 		            </when>
-		            <when test="condition == 'userNm'">
+		            <when test="condition != null and condition == 'userNm'">
 		                AND USERNM LIKE CONCAT('%', #{user}, '%')
 		            </when>
 		            <otherwise>
