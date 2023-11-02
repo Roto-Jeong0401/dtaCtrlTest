@@ -106,7 +106,7 @@
 	fn_isRightPwd = function(code) {
 		var userId = $("#welcomeUserId").val();
 		var passWd = $("#passWd").val();
-		alert("입력한 아이디: "+userId +", 입력한 비번: "+passWd);
+		// alert("입력한 아이디: "+userId +", 입력한 비번: "+passWd);
 		var data = {
 				'userId': userId,
 				'passWd': passWd,
