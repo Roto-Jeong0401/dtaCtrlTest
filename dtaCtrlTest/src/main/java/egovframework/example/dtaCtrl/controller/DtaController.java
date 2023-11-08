@@ -191,7 +191,7 @@ public class DtaController {
 	}
 	
 	/**
-	 * 회원정보 일치 확인(로그인 전 단계)
+	 * 회원정보 일치 확인(로그인 전 단계)	-	상세페이지 호출
 	 * @param param
 	 * @param model
 	 * @return
@@ -201,7 +201,7 @@ public class DtaController {
 	public String getLoginState(@RequestParam Map<String, Object> param, Model model) {
 		System.out.println("param: "+param);
 		Map<String, Object> member = new HashMap();
-		member = dtaService.selectOneMember(param);
+		member = dtaService.selectOneMember(param);	// 비밀번호 일치회원 있는지 확인
 		System.out.println("return 확인: "+member);
 		if(member.equals("") || member.isEmpty() || member == null) {
 			System.out.println("회원정보 없음");

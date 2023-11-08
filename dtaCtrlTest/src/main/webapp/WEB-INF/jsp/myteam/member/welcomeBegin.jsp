@@ -34,21 +34,21 @@
 				<table class="table table-bordered">
 					<c:choose>
 						<c:when test="${not empty memberList}">
-							<c:forEach items="${memberList }" var="memberList">
 								<thead id="table_header">
 									<tr>
 										<td>이름</td><td>아이디</td><td>주소</td><td>비고</td>
 									</tr>
 								</thead>
-								<tbody id="table-container">
-									<tr>
-										<td>${memberList.USERNM }</td>
-										<td>${memberList.USERID }</td>
-										<td>${memberList.ADDRESS }</td>
-										<td>${memberList.COMMENT }</td>
-									</tr>
-								</tbody>
-							</c:forEach>
+								<c:forEach items="${memberList }" var="memberList">
+									<tbody id="table-container">
+										<tr>
+											<td>${memberList.USERNM }</td>
+											<td>${memberList.USERID }</td>
+											<td>${memberList.ADDRESS }</td>
+											<td>${memberList.COMMENT }</td>
+										</tr>
+									</tbody>
+								</c:forEach>
 						</c:when>
 						<c:otherwise>
 							<thead id="table_header">
