@@ -100,6 +100,7 @@
 			$("#btn_search").attr("disabled", true);
 			condition.attr("onclick", "fn_searchMember();");
 			toFindUser.attr("onkeyup", "fn_searchMember();");
+			fn_searchMember();
 		}
 	}
 	
